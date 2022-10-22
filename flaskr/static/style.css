@@ -3,6 +3,7 @@
 
 /*====== VARIABLES CSS ======*/
 :root {
+    --bs-primary-rgb: rgb(255, 193, 7);
     --header-height: 3rem;
 
     /*====== FONT AND TYPOGRAPHY ======*/
@@ -56,7 +57,7 @@ body {
     color: black;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     color: black;
     font-weight: var(--font-semi-bold);
 }
@@ -102,6 +103,44 @@ a {
     gap: 1.5rem;
 }
 
+/*===== LOGIN/REGISTER =====*/
+.form-section {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-section .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-section input[type="username"] {
+    margin-bottom: -1px;
+}
+
+.form-section input[type="password"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    --bs-btn-color: #000000 !important;
+    --bs-btn-bg: #ffc107 !important;
+    --bs-btn-border-color: #ffc107 !important;
+    --bs-btn-hover-color: #fff !important;
+    --bs-btn-hover-bg: #22262a !important;
+    --bs-btn-hover-border-color: #22262a !important;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff !important;
+    --bs-btn-active-bg: #ffc107 !important;
+    --bs-btn-active-border-color: #ffc107 !important;
+    --bs-btn-active-shadow: inset 0 3px 5px rgb(34, 38, 42);
+    --bs-btn-disabled-color: #22262a !important;
+    --bs-btn-disabled-bg: #ffc107 !important;
+    --bs-btn-disabled-border-color: #ffc107 !important;
+}
+
 /*====== SKILLS ======*/
 .skills__container {
     row-gap: 0;
@@ -117,7 +156,7 @@ a {
 .skills__icon,
 .skills__arrow {
     font-size: 2rem;
-    color: goldenrod;
+    color: #ffc107;
 }
 
 .skills__icon {
@@ -166,7 +205,7 @@ a {
 
 .skills__percentage {
     display: block;
-    background-color: goldenrod;
+    background-color: #ffc107;
 }
 
 /*====== FRONTEND ======*/
@@ -293,12 +332,16 @@ a {
 }
 
 .single-service {
+    max-height: 100%;
+    height: 250px;
     position: relative;
     text-align: center;
     margin-bottom: 50px;
     -webkit-transition: .3s;
     transition: .3s;
     padding: 30px 20px;
+    color: white;
+    background-color: #22262a;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
 }
 
@@ -306,7 +349,7 @@ a {
     position: absolute;
     width: 0;
     height: 0;
-    background-color: goldenrod;
+    background-color: #ffc107;
     left: 0;
     top: 0;
     content: "";
@@ -318,7 +361,7 @@ a {
     position: absolute;
     width: 0;
     height: 0;
-    background-color: goldenrod;
+    background-color: #ffc107;
     right: 0;
     bottom: 0;
     content: "";
@@ -351,9 +394,9 @@ a {
 }
 
 .single-service:hover i.fa {
-    background-color: goldenrod;
+    background-color: #ffc107;
     color: #fff;
-    border-color: goldenrod;
+    border-color: #ffc107;
     border-radius: 0;
 }
 
@@ -369,10 +412,87 @@ a {
     line-height: 1.8;
 }
 
+/*====== QUALIFICATION ======*/
+.qualification__tabs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: var(--mb-2);
+}
+
+.qualification__button {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+}
+
+.qualification__button:hover {
+    color: #ffc107;
+}
+
+.qualification__icon {
+    font-size: 1.8rem;
+    margin-right: var(--mb-0-25);
+}
+
+.qualification__data {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+}
+
+.qualification__title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+}
+
+.qualification__subtitle {
+    display: inline-block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.qualification__calendar {
+    font-size: var(--smaller-font-size);
+    color: gray;
+}
+
+.qualification__rounder {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: #ffc107;
+    border-radius: 50%;
+}
+
+.qualification__line {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: #ffc107;
+    transform: translate(6px, -7px);
+}
+
+.qualification [data-content] {
+    display: none;
+}
+
+.qualification__active[data-content] {
+    display: block;
+}
+
+.qualification__button.qualification__active {
+    color: #ffc107;
+}
+
+
 /*====== SMALL DEVICES ======*/
 @media screen and (min-width: 350px) {
     .skills__title {
         font-size: var(--normal-font-size);
+    }
+
+    .qualification__data {
+        gap: .5rem;
     }
 }
 
@@ -381,6 +501,13 @@ a {
     .skills__container {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .qualification__section {
+        display: grid;
+        grid-template-columns: .6fr;
+        justify-content: center;
+    }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -390,6 +517,18 @@ a {
 
     .section__subtitle {
         margin-bottom: 4rem;
+    }
+
+    .qualification__tabs {
+        justify-content: center;
+    }
+
+    .qualification__button {
+        margin: 0 var(--mb-1);
+    }
+
+    .qualification__section {
+        grid-template-columns: .5fr;
     }
 
     .header,

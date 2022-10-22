@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 from flaskr.auth import login_required
 from flaskr.db import get_db
 
-bp = Blueprint('blog', __name__)
+bp = Blueprint('portfolio', __name__)
 
 
 @bp.route('/')
@@ -17,7 +17,7 @@ def index():
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    return render_template('blog/index.html', posts=posts)
+    return render_template('portfolio/index.html', posts=posts)
 
 
 @bp.route('/create', methods=('GET', 'POST'))
@@ -41,9 +41,9 @@ def create():
                 (title, body, g.user['id'])
             )
             db.commit()
-            return redirect(url_for('blog.index'))
+            return redirect(url_for('portfolio.index'))
 
-    return render_template('blog/create.html')
+    return render_template('portfolio/create.html')
 
 
 def get_post(id, check_author=True):
@@ -86,9 +86,9 @@ def update(id):
                 (title, body, id)
             )
             db.commit()
-            return redirect(url_for('blog.index'))
+            return redirect(url_for('portfolio.index'))
 
-    return render_template('blog/update.html', post=post)
+    return render_template('portfolio/update.html', post=post)
 
 
 @bp.route('/<int:id>/delete', methods=('POST',))
@@ -98,10 +98,29 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('blog.index'))
+    return redirect(url_for('portfolio.index'))
+
+
+@bp.route('/home.html')
+def home():
+    return render_template('portfolio/home.html')
+
+
+@bp.route('/about.html')
+def about():
+    return render_template('portfolio/about.html')
+
+
+@bp.route('/skills.html')
+def skills():
+    return render_template('portfolio/skills.html')
 
 
 @bp.route('/services.html')
 def services():
-    return render_template('blog/services.html')
+    return render_template('portfolio/services.html')
 
+
+@bp.route('/contact.html')
+def contact():
+    return render_template('portfolio/contact.html')

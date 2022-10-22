@@ -34,10 +34,10 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # apply the blueprints to the app
-    from flaskr import auth, blog
+    from flaskr import auth, portfolio
 
     app.register_blueprint(auth.bp)
-    app.register_blueprint(blog.bp)
+    app.register_blueprint(portfolio.bp)
     app.add_url_rule('/', endpoint='index')
 
     return app
