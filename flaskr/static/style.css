@@ -496,6 +496,12 @@ a {
     }
 }
 
+.contact-form {
+    max-width: 100%;
+    width: 100px;
+    display: inline-block;
+}
+
 /*====== MEDIUM DEVICES ======*/
 @media screen and (min-width: 568px) {
     .skills__container {

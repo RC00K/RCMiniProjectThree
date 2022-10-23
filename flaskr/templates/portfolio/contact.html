@@ -1,67 +1,35 @@
 {% extends 'base.html' %}
 <title>{%  block title %}Contact{% endblock %} - Ryder Cook</title>
 {% block content %}
-<!--===== OPENER =====-->
-<section class="services pt-100 pb-50" id="services">
+<!--===== CONTACT =====-->
+<section class="contact pt-100 pb-50" id="contact">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 mx-auto text-center">
                 <div class="section-title mb-100">
-                    <h2 class="section__title">Services</h2>
-                    <span class="section__subtitle">What I Offer</span>
+                    <h2 class="section__title">Contact Me</h2>
+                    <span class="section__subtitle">Let's Get In Touch</span>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-mb-6">
-                <!--===== SERVICE =====-->
-                <div class="single-service">
-                    <i class="fa fa-laptop"></i>
-                    <h4>Tech Support</h4>
-                    <p>I will help with your technology or need some technical knowledge I'm your nerd.</p>
-                </div>
+        <form class="form-section" style="max-width: 830px;" id="contactForm">
+            <!--===== NAME =====-->
+            <div class="mb-3">
+                <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required">
             </div>
-            <div class="col-lg-4 col-mb-6">
-                <!--===== SERVICE =====-->
-                <div class="single-service">
-                    <i class="fa fa-laptop"></i>
-                    <h4>App/Web Development</h4>
-                    <p>I will help you create your app or even a website if that's more your style.</p>
-                </div>
+            <!--===== EMAIL =====-->
+            <div class="mb-3">
+                <input class="form-control" id="emailAddress" type="email" placeholder="Email" data-sb-validations="required">
             </div>
-            <div class="col-lg-4 col-mb-6">
-                <!--===== SERVICE =====-->
-                <div class="single-service">
-                    <i class="fa fa-laptop"></i>
-                    <h4>UI/UX Design</h4>
-                    <p>I will make your design a reality with a mockup of your interface.</p>
-                </div>
+            <!--===== MESSAGE =====-->
+            <div class="mb-3">
+                <textarea class="form-control" id="message" type="text" placeholder="Your message here...." style="height: 10rem; resize: none;" data-sb-validations="required"></textarea>
             </div>
-            <div class="col-lg-4 col-mb-6">
-                <!--===== SERVICE =====-->
-                <div class="single-service">
-                    <i class="fa fa-laptop"></i>
-                    <h4>Graphic Design</h4>
-                    <p>Have an event or need to express something through visual appeal I will create something great for you.</p>
-                </div>
+            <!--===== SUBMIT =====-->
+            <div class="d-grid">
+                <button type="button" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;">Submit</button>
             </div>
-            <div class="col-lg-4 col-mb-6">
-                <!--===== SERVICE =====-->
-                <div class="single-service">
-                    <i class="fa fa-laptop"></i>
-                    <h4>Photography</h4>
-                    <p>I will take high quality photos for any moment you want to capture.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-mb-6">
-                <!--===== SERVICE =====-->
-                <div class="single-service">
-                    <i class="fa fa-laptop"></i>
-                    <h4>Video</h4>
-                    <p>I will record and create videos for events, sports, musics, or personal moments.</p>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
 {% endblock %}

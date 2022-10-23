@@ -1,15 +1,30 @@
 {% extends 'base.html' %}
-
-{% block header %}
-  <h1>{% block title %}New Post{% endblock %}</h1>
-{% endblock %}
-
 {% block content %}
-  <form method="post">
-    <label for="title">Title</label>
-    <input name="title" id="title" value="{{ request.form['title'] }}" required>
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-    <input type="submit" value="Save">
-  </form>
+<title>{%  block title %}Create{% endblock %} - Ryder Cook</title>
+<section class="create pt-100 pb-50" id="create">
+    <div class="row">
+        <div class="col-xl-6 mx-auto text-center">
+            <div class="section-title mb-100">
+                <h2 class="section__title">Create A Review</h2>
+                <span class="section__subtitle">Give Me A Review</span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form method="post" class="form-section" style="max-width: 830px;" id="contactForm">
+          <!--===== TITLE =====-->
+          <div class="mb-3">
+              <input name="title" value="{{ request.form['title'] }}" class="form-control" id="title" type="text" placeholder="Name" required>
+          </div>
+          <!--===== MESSAGE =====-->
+          <div class="mb-3">
+              <textarea name="body" class="form-control" id="body" type="text" placeholder="Your message here...." style="height: 10rem; resize: none;" required>{{ request.form['body'] }}</textarea>
+          </div>
+          <!--===== SUBMIT =====-->
+          <div class="d-grid">
+              <input type="submit" value="Submit" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;"></input>
+          </div>
+        </form>
+    </div>
+</section>
 {% endblock %}

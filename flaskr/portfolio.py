@@ -17,7 +17,7 @@ def index():
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    return render_template('portfolio/index.html', posts=posts)
+    return render_template('portfolio/review.html', posts=posts)
 
 
 @bp.route('/create', methods=('GET', 'POST'))
@@ -41,7 +41,7 @@ def create():
                 (title, body, g.user['id'])
             )
             db.commit()
-            return redirect(url_for('portfolio.index'))
+            return redirect(url_for('review'))
 
     return render_template('portfolio/create.html')
 
@@ -86,7 +86,7 @@ def update(id):
                 (title, body, id)
             )
             db.commit()
-            return redirect(url_for('portfolio.index'))
+            return redirect(url_for('review'))
 
     return render_template('portfolio/update.html', post=post)
 
@@ -98,7 +98,7 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('portfolio.index'))
+    return redirect(url_for('review'))
 
 
 @bp.route('/home.html')
@@ -124,3 +124,8 @@ def services():
 @bp.route('/contact.html')
 def contact():
     return render_template('portfolio/contact.html')
+
+
+@bp.route('/review.html')
+def review():
+    return render_template('portfolio/review.html')
