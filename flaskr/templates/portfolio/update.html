@@ -24,10 +24,40 @@
           <div class="row">
               <div class="col text-center">
                   <input type="submit" value="Submit" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;">
-                  <form action="{{ url_for('portfolio.delete', id=post['id']) }}" method="post">
-                    <input type="submit" value="Delete" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;" onclick="return confirm('Are you sure?');">
-                  </form>
-              </div>
+                  <input type="submit" value="Delete" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;" data-bs-toggle="modal" data-bs-target="#delete-modal">
+                  <!--===== MODAL =====-->
+                  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="modal-title">Delete</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  <form method="post">
+                                      <button type="submit" formaction="{{ url_for('portfolio.delete', id=post['id']) }}" class="btn btn-primary">Delete</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body"> my modal </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
           </div>
         </form>
     </div>

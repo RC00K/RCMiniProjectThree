@@ -36,3 +36,11 @@ tabs.forEach(tab => {
         tab.classList.add('qualification__active')
     })
 })
+
+const btn_update = document.createElement("button");
+
+btn_update.classList = 'btn btn-outline-info btn-sm mt-1 me-2'
+btn_update.setAttribute('data-bs-target','#updateModal')
+btn_update.setAttribute('data-bs-toggle','modal')
+
+document.getElementById('container').appendChild(btn_update);
