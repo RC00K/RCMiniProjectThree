@@ -21,5 +21,10 @@ Bootstrap V5 Modal
     - FLASK_ENV: development
     - Flask (flaskr:create_app)
 
+## _Initialize Database_
+    - flask --app flaskr init-db
+    - flask --app flaskr run
+    - In Browser Navigate To: http://127.0.0.1:5000
+
 ## _Run Project_
     - Start the app by click the ▶ button
