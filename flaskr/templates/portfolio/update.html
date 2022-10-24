@@ -24,43 +24,28 @@
           <div class="row">
               <div class="col text-center">
                   <input type="submit" value="Submit" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;">
-                  <input type="submit" value="Delete" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;" data-bs-toggle="modal" data-bs-target="#delete-modal">
-                  <!--===== MODAL =====-->
-                  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-                      <div class="modal-dialog">
+                  <button type="button" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;" data-bs-toggle="modal" data-bs-target="#deletemodal">Delete</button>
+                  <div class="modal fade" id="#deletemodal" tabindex="-1" aria-label="deleteModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                               <div class="modal-header">
-                                  <h5 class="modal-title" id="modal-title">Delete</h5>
+                                  <h5 class="modal-title" id="deleteModalLabel">Delete Review</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  <form method="post">
-                                      <button type="submit" formaction="{{ url_for('portfolio.delete', id=post['id']) }}" class="btn btn-primary">Delete</button>
+                              </div>
+                              <div class="modal-body">
+                                  Once you delete your review it will no longer be available. Are you sure you want to proceed?
+                              </div>
+                              <div class="modal-footer">
+                                  <form action="{{ url_for('portfolio.delete', id=post['id']) }}" method="post">
+                                    <input type="submit" value="Delete" class="btn btn-primary btn-lg" style="width: 200px; margin: auto;">
                                   </form>
                               </div>
                           </div>
                       </div>
                   </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="updateModalLabel">Update</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body"> my modal </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+              </div>
           </div>
         </form>
     </div>
 </section>
 {% endblock %}
-
