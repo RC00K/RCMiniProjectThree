@@ -27,4 +27,4 @@ Bootstrap V5 Modal
     - In Browser Navigate To: http://127.0.0.1:5000
 
 ## _Run Project_
-    - Start the app by click the ▶ button
+    - Start the app by clicking the ▶ button
